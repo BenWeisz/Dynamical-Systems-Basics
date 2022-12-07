@@ -80,7 +80,11 @@ If you feel like what you just watched was magic trick then you'd sort of be cor
 
 There's one thing that we forgot to talk about. If you take a look at our solution, there's one thing missing. If we would have choosen $x(t) = ce^{\lambda t}, c \in \mathbb{R}$ to be our guess, we would have gotten another solution. Go on, try it out on paper!
 
-That's interesting, so it seems that for any constant $c \in \mathbb{R}$ we have a solution. You might ask, what exactly does this constant $c$ represent. Let's think of this differential equation as a model for a particle at time $t$. Below, I'm going to show you a graph of our original solution with $c = 1$.
+That's interesting, so it seems that for any constant $c \in \mathbb{R}$ we have a solution. You might ask, what exactly this constant $c$ represent. Let's think of this differential equation as a model for a particle at time $t$. Below, I'm going to show you a graph of our original solution with $c = 1$.
+
+<p align="center">
+![Images/method1-fig1.png](Images/method1-fig1.png)
+</p>
 
 ### Method 2: Taylor Series
 
