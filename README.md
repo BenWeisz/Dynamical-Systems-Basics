@@ -83,7 +83,7 @@ There's one thing that we forgot to talk about. If you take a look at our soluti
 That's interesting, so it seems that for any constant $c \in \mathbb{R}$ we have a solution. You might ask, what exactly this constant $c$ represent. Let's think of this differential equation as a model for a particle at time $t$. Below, I'm going to show you a graph of our original solution with $c = 1$.
 
 <p align="center">
-![Images/method1-fig1.png](Images/method1-fig1.png)
+![Images/method1-fig1](/Images/method1-fig1.png?raw=true "Optional Title")
 </p>
 
 ### Method 2: Taylor Series
