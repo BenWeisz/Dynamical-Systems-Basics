@@ -4,25 +4,30 @@
 
 This write up is based on material from **Steve Brunton**'s amazing course on youtube called [Differential Equations and Dynamical Systems](https://www.youtube.com/@Eigensteve). If you haven't seen this series, definitely go check it out, it gives you an intuitive sense for why you should care about dynamical systems, some practical examples and how to solve them.
 
-I'm writing this is part because I forget things that I've learned easily and so this is just a means by which I'm hoping to both give myself a refresher and a resource to come back to later. 
+I'm writing this is part because I forget things that I've learned easily and so this is just a means by which I'm hoping to both give myself a refresher and a resource to come back to later.
+
+All the code for the graphs will be organized in intuitive subfolders. I'm running python 3.8 with numpy, scipy, and matplotlib installed.
 
 ## Motivation
 
 So why should you care about dynamical systems? What a great question! Dynamical systems are all around us, you can see them in action in simple objects and phenomena in your everyday life. The motion of the bobble head on your desk? Dynamical system. The number of cases of Covid19? Dynamical system. The fuel consumption of your car? Dynamical system. Everytime, the rate of change of a variable in time is related to the quantity of the variable at that time you have a dynamical system. These systems give us a new tool for us to place in our modeling toolkits. Alright lets get our hands dirty.
 
 ## First Order Linear Differential Equations
+
 <p align="center">
     $\frac{d}{dt}x(t) = \lambda x(t)$
 </p>
 
-Wow, what a mouthful of a subtitle. Lets break it down with the above example. The **First Order** part comes from the fact that for the variable that we are concerned with $x(t)$, we only use its first derivative in the equation. The **Linear** part comes from the fact that the expression on the right hand side is a linear function of our variable $x(t)$. And of course because our equation involves the derivative of our variable we have the term **Differential Equation** being used. This type of equation is part of a more general class of equations call **Ordinary Differential Equations** or ODEs for short. We say **Ordinary** because we only use the normal derivatives in our equations and not the partial derivatives. 
+Wow, what a mouthful of a subtitle. Lets break it down with the above example. The **First Order** part comes from the fact that for the variable that we are concerned with $x(t)$, we only use its first derivative in the equation. The **Linear** part comes from the fact that the expression on the right hand side is a linear function of our variable $x(t)$. And of course because our equation involves the derivative of our variable we have the term **Differential Equation** being used. This type of equation is part of a more general class of equations call **Ordinary Differential Equations** or ODEs for short. We say **Ordinary** because we only use the normal derivatives in our equations and not the partial derivatives.
 
 As an aside, lets take a look at some simplified notation. The first thing we're going to do is drop the $(t)$ evaluations. We're going to assume that they're still there, but we'll only use that notation when we're actually evaluating them at some value $t=a$.
+
 <p align="center">
     $\frac{d}{dt}x = \lambda x$
 </p>
 
 Alright, the last thing we'll do is drop represent $\frac{dx}{dt}$ by $\dot{x}$. If you see double dot notation that just means the second derivative and so on for higher order derivatives. So finally we have:
+
 <p align="center">
     $\dot{x} = \lambda x$
 </p>
@@ -34,6 +39,7 @@ Okay, so at first glance it might look like our equation above doesn't really te
 We have a few options here. We can either try to solve these types of equations by simply manipulating the variables we have, or we can try to approximate the solution the first method might give us. First, we're going investigate the method of manipulating the variables we have; this is what we call an **Analytic Solution**.
 
 ## Analytic Solutions
+
 There are many ways to come up with an analytic solution. Let's look at one for now, and we'll look at another method later.
 
 ### Method 1: Magic (Sort of)
@@ -72,4 +78,10 @@ Take a hard look, do you see anything interesting? Yup! Its our solution. We tak
 
 If you feel like what you just watched was magic trick then you'd sort of be correct. All that we did is basically just guessed a solution that happened to work for this particular ODE.
 
+There's one thing that we forgot to talk about. If you take a look at our solution, there's one thing missing. If we would have choosen $x(t) = ce^{\lambda t}, c \in \mathbb{R}$ to be our guess, we would have gotten another solution. Go on, try it out on paper!
+
+That's interesting, so it seems that for any constant $c \in \mathbb{R}$ we have a solution. You might ask, what exactly does this constant $c$ represent. Let's think of this differential equation as a model for a particle at time $t$. Below, I'm going to show you a graph of our original solution with $c = 1$.
+
 ### Method 2: Taylor Series
+
+<!-- Lets take a look at the same example from a different perspective -->
