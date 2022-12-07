@@ -1,12 +1,12 @@
 # Numerical-Integration-Basics
 
-### Preamble
+## Preamble
 
 This write up is based on material from **Steve Brunton**'s amazing course on youtube called [Differential Equations and Dynamical Systems](https://www.youtube.com/@Eigensteve). If you haven't seen this series, definitely go check it out, it gives you an intuitive sense for why you should care about dynamical systems, some practical examples and how to solve them.
 
 I'm writing this is part because I forget things that I've learned easily and so this is just a means by which I'm hoping to both give myself a refresher and a resource to come back to later. 
 
-### Motivation
+## Motivation
 
 So why should you care about dynamical systems? What a great question! Dynamical systems are all around us, you can see them in action in simple objects and phenomena in your everyday life. The motion of the bobble head on your desk? Dynamical system. The number of cases of Covid19? Dynamical system. The fuel consumption of your car? Dynamical system. Everytime, the rate of change of a variable in time is related to the quantity of the variable at that time you have a dynamical system. These systems give us a new tool for us to place in our modeling toolkits. Alright lets get our hands dirty.
 
