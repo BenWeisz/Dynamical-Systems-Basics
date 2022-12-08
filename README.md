@@ -1,4 +1,4 @@
-# Numerical-Integration-Basics
+# Dynamical-Systems-Basics
 
 ## Preamble
 
