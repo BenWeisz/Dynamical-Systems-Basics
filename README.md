@@ -86,6 +86,14 @@ That's interesting, so it seems that for any constant $c \in \mathbb{R}$ we have
   <img width="460" height="300" src="https://raw.githubusercontent.com/BenWeisz/Numerical-Integration-Basics/main/Images/method1-fig1.jpg">
 </p>
 
+If you look closely, you'll notice that at time $t = 0$, $x(t) = 1$. When we plug in $t = 0$ into our more general solution it simplifies to $x(0) = c$. We can come to the conclusion that $c$ is the initial condition of our general system. We will denote this by $x_0$.
+
+This leads us to the general class of solutions to our problem:
+
+<p align="center">
+    $x(t) = e^{\lambda t} x_0$
+</p>
+
 ### Method 2: Taylor Series
 
 <!-- Lets take a look at the same example from a different perspective -->
