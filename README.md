@@ -114,38 +114,38 @@ Let's get back to our original differential equation now. Since we don't know wh
 
 <p align="center">
     $x(t) = 1 + a_1t + a_2t^2 + a_3t^3 + \ldots$
-<\p>
+</p>
 
 Now lets compute $\lambda x(t)$ and compute the derivative $\dot{x}(t)$.
 
 <p align="center">
     $\lambda x(t) = \lambda + \lambda a_1 t + \lambda a_2 t^2 + \lambda a_3 t^3 + \ldots$
-<\p>
+</p>
 
 <p align="center">
     $\frac{d}{dt}x(t) = a_1 + 2a_2t + 3a_3t^2 + 4a_4t^3\ldots$
-<\p>
+</p>
 
 Using our differential equation we equate the two. Notice that both sides consist of the same powers of $t$, differing only in the coefficients. If we want these two expressions to be equivalent we need to set the coefficients equal to each other.
 
 <p align="center">
     $a_1 = \lambda, 2a_2 = \lambda a_1, 3a_3 = \lambda a_2, \ldots$
-<\p>
+</p>
 
 <p align="center">
 $a_1 = \lambda, a_2 = \frac{\lambda^2}{2}, a_3 = \frac{\lambda^3}{2\cdot 3}, a_4 = \frac{\lambda^4}{2\cdot3\cdot4}, \ldots$
-<\p>
+</p>
 
 Notice that we can simplify the denominators as factorials.
 
 <p align="center">
 $a_1 = \lambda, a_2 = \frac{\lambda^2}{2!}, a_3 = \frac{\lambda^3}{3!}, a_4 = \frac{\lambda^4}{4!}, \ldots$
-<\p>
+</p>
 
 If we substitute this back into our equation for $x(t)$ we get the following:
 
 <p align="center">
 $x(t) = 1 + \lambda t + \frac{(\lambda t)^2}{2!} + \frac{(\lambda t)^3}{3!} + \ldots$
-<\p>
+</p>
 
 Do you notice anything interesting about this? Yup, it's the Taylor Series for $e^{\lambda t}$. This again gives us our solution to this differential equation. If you generalize the solution for any initial condition, you again arrive at $x(t) = e^{\lambda t} x_0$.
