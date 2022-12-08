@@ -2,7 +2,7 @@
 
 ## Preamble
 
-This write up is based on material from **Steve Brunton**'s amazing course on youtube called [Differential Equations and Dynamical Systems](https://www.youtube.com/@Eigensteve). If you haven't seen this series, definitely go check it out, it gives you an intuitive sense for why you should care about dynamical systems, some practical examples and how to solve them.
+This write up is based on material from **Steve Brunton**'s amazing course on youtube [Differential Equations and Dynamical Systems](https://www.youtube.com/@Eigensteve). If you haven't seen this series, definitely go check it out, it gives you an intuitive sense for why you should care about dynamical systems, some practical examples and how to solve them.
 
 I'm writing this is part because I forget things that I've learned easily and so this is just a means by which I'm hoping to both give myself a refresher and a resource to come back to later.
 
@@ -40,7 +40,7 @@ We have a few options here. We can either try to solve these types of equations 
 
 ## Analytic Solutions
 
-There are many ways to come up with an analytic solution. Let's look at one for now, and we'll look at another method later.
+There are many ways to come up with an analytic solution. Let's look at one for now, and we'll look at two more methods later.
 
 ### Method 1: Magic (Sort of)
 
@@ -96,4 +96,56 @@ This leads us to the general class of solutions to our problem:
 
 ### Method 2: Taylor Series
 
-<!-- Lets take a look at the same example from a different perspective -->
+Let's take a look at this from a bit of a different perspective. We're going to try to harness power of **Taylor series** to help us come up with a solution to our differential equation. For those, who haven't seen Taylor series before, I'll give you a brief introduction.
+
+For functions that are continuous and infinitely differentiable, we can come up with an exact representations just using an infinite sum of polynomial terms, centering our approximation around a point $c$. We can represent functions like $e^t$, $sin(t)$ and $cos(t)$ like this. For example, the representation for $e^t$ around $t = 0$ is:
+
+<p align="center">
+    $e^t = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots$
+</p>
+
+Below we have the taylor series for an arbitrary scalar function of one variable. Here $\frac{d^kf}{dt^k}$ is the $k$-th derivative of $f$. Taylor series that approximate a function around a point $t = 0$ are known as the **Maclaurin Series**.
+
+<p align="center">
+    $f(t) = \sum_{k=0}^{\infty}\frac{\frac{d^kf}{dt^k}(0)}{k!}\cdot t^k$
+</p>
+
+Let's get back to our original differential equation now. Since we don't know what our function is, let's assume that we can approximate it by a Taylor Series. We don't know the exact coefficients for it's polynomail terms but we can just try to write them out nonetheless.
+
+<p align="center">
+    $x(t) = 1 + a_1t + a_2t^2 + a_3t^3 + \ldots$
+<\p>
+
+Now lets compute $\lambda x(t)$ and compute the derivative $\dot{x}(t)$.
+
+<p align="center">
+    $\lambda x(t) = \lambda + \lambda a_1 t + \lambda a_2 t^2 + \lambda a_3 t^3 + \ldots$
+<\p>
+
+<p align="center">
+    $\frac{d}{dt}x(t) = a_1 + 2a_2t + 3a_3t^2 + 4a_4t^3\ldots$
+<\p>
+
+Using our differential equation we equate the two. Notice that both sides consist of the same powers of $t$, differing only in the coefficients. If we want these two expressions to be equivalent we need to set the coefficients equal to each other.
+
+<p align="center">
+    $a_1 = \lambda, 2a_2 = \lambda a_1, 3a_3 = \lambda a_2, \ldots$
+<\p>
+
+<p align="center">
+$a_1 = \lambda, a_2 = \frac{\lambda^2}{2}, a_3 = \frac{\lambda^3}{2\cdot 3}, a_4 = \frac{\lambda^4}{2\cdot3\cdot4}, \ldots$
+<\p>
+
+Notice that we can simplify the denominators as factorials.
+
+<p align="center">
+$a_1 = \lambda, a_2 = \frac{\lambda^2}{2!}, a_3 = \frac{\lambda^3}{3!}, a_4 = \frac{\lambda^4}{4!}, \ldots$
+<\p>
+
+If we substitute this back into our equation for $x(t)$ we get the following:
+
+<p align="center">
+$x(t) = 1 + \lambda t + \frac{(\lambda t)^2}{2!} + \frac{(\lambda t)^3}{3!} + \ldots$
+<\p>
+
+Do you notice anything interesting about this? Yup, it's the Taylor Series for $e^{\lambda t}$. This again gives us our solution to this differential equation. If you generalize the solution for any initial condition, you again arrive at $x(t) = e^{\lambda t} x_0$.
