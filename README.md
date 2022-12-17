@@ -10,7 +10,7 @@ All the code for the graphs will be organized in intuitive subfolders. I'm runni
 
 ## Motivation
 
-So why should you care about dynamical systems? What a great question! Dynamical systems are all around us, you can see them in action in simple objects and phenomena in your everyday life. The motion of the bobble head on your desk? Dynamical system. The number of cases of Covid19? Dynamical system. The fuel consumption of your car? Dynamical system. Everytime, the rate of change of a variable in time is related to the quantity of the variable at that time you have a dynamical system. These systems give us a new tool for us to place in our modeling toolkits. Alright lets get our hands dirty.
+So why should you care about dynamical systems? What a great question! Dynamical systems are all around us, you can see them in action in simple objects and phenomena in your everyday life. The motion of the bobble head on your desk? Dynamical system. The number of cases of Covid19? Dynamical system. The fuel consumption of your car? Dynamical system. Everytime, the rate of change of a variable in time is related to the quantity of the variable at that time you have a dynamical system. These systems give us a new tool for us to place in our modeling toolkits. Alright, lets get our hands dirty.
 
 ## First Order Linear Differential Equations
 
@@ -18,7 +18,7 @@ So why should you care about dynamical systems? What a great question! Dynamical
     $\frac{d}{dt}x(t) = \lambda x(t)$
 </p>
 
-Wow, what a mouthful of a subtitle. Lets break it down with the above example. The **First Order** part comes from the fact that for the variable that we are concerned with $x(t)$, we only use its first derivative in the equation. The **Linear** part comes from the fact that the expression on the right hand side is a linear function of our variable $x(t)$. And of course because our equation involves the derivative of our variable we have the term **Differential Equation** being used. This type of equation is part of a more general class of equations call **Ordinary Differential Equations** or ODEs for short. We say **Ordinary** because we only use the normal derivatives in our equations and not the partial derivatives.
+Wow, what a mouthful of a subtitle. Lets break it down with the example above. The **First Order** part comes from the fact that for the variable that we are concerned with $x(t)$, we only use its first derivative in the equation. The **Linear** part comes from the fact that the expression on the right hand side is a linear function of our variable $x(t)$. And of course, because our equation involves the derivative of our variable we have the term **Differential Equation** being used. This type of equation is part of a more general class of equations call **Ordinary Differential Equations** or ODEs for short. We say **Ordinary** because we only use the normal derivatives in our equations and not the partial derivatives.
 
 As an aside, lets take a look at some simplified notation. The first thing we're going to do is drop the $(t)$ evaluations. We're going to assume that they're still there, but we'll only use that notation when we're actually evaluating them at some value $t=a$.
 
