@@ -154,7 +154,9 @@ Do you notice anything interesting about this? Yup, it's the Taylor Series for $
 
 Let's look at another method for solving differential equations. To demonstrate this method, let's first at a different problem than the ones we've been looking at so far. We're going to solve the problem below using method 1 first and then I'll show you a method using linear algebra that is equivalent.
 
+<p align="center">
 $\ddot{x} = -kx$
+</p>
 
 This linear differential equation is one that uses the second order derivative of $x$, and represents a spring-mass system. This equation is really just Newton's force equation and Hooke's law hiding in plain sight. Newton's force equation from physics tells us that the force acting on an object is equal to the objects mass times its acceleration. This is expressed as $F = ma$.
 
@@ -162,45 +164,71 @@ Hooke's law describes the force acting on an object due to a spring that is atta
 
 Since the only force acting on our object is the spring force, we can equate our two equations that we have. This gives us the following:
 
+<p align="center">
 $ma = -kx$
+</p>
 
 Lets assume that for now our mass is $m=1$ and remember that $a = \ddot{x}$. Then it's easy to see that:
 
+<p align="center">
 $\ddot{x} = -kx$
+</p>
 
 Using our trusty exponential funcion we can try to find a solution to this system. Let's say that $x(t) = e^{\lambda t}$ for some $\lambda$. In this case our first derivative would be $\dot{x}(t) = \lambda e^{\lambda t}$ and our second derivative would be $\ddot{x}(t) = \lambda^2 e^{\lambda t}$.
 
 At this point you might be able to guess what the value of $\lambda$ would need to be for this to be a solution but we will try to come up with a value in a more intuitive manner. First let's move all our functions to one side.
 
+<p align="center">
 $\ddot{x} + kx = 0$
+</p>
 
 Then substitute in our guess for $x$ and $\ddot{x}$.
 
+<p align="center">
 $\lambda^2 e^{\lambda t} + k e^{\lambda t} = 0$
+</p>
+<p align="center">
 $(\lambda^2 + k)e^{\lambda t} = 0$
+</p>
 
 If we were to graph $e^{\lambda t}$ we would realize that not matter the value of $\lambda$ there is no value of $t$ that would make this term equate to $0$. What this means is that for our differential equation to hold, we need the equation $\lambda^2 + k$ to be zero for some values of $\lambda$. Since $k>0$ as mentioned earlier, this equation has no solution in the real numbers, so we're going to need to use complex numbers. I won't go over what complex numbers are but the idea is that we use $i$ to represent $\sqrt{-1}$. This might seem weird at first but it allows us to come up with solutions to equations that wouldn't normally have real solutions.
 
 Now back to solving $\lambda^2 + k = 0$. We solve this in the follwing way:
 
+<p align="center">
 $\lambda^2 + k = 0$
+</p>
+<p align="center">
 $\lambda^2 = -k$
+</p>
+<p align="center">
 $\lambda = \sqrt{-k}$
+</p>
+<p align="center">
 $\lambda = \sqrt{k}\cdot\sqrt{-1}$
+</p>
+<p align="center">
 $\lambda = \pm i \sqrt{k}$
+</p>
 
 At this point, you'll notice that two values of $\lambda$ will satisfy our equation $(\lambda^2 + k)e^{\lambda t} = 0$, which means that we have two solutions for our original problem. The two solutions are:
 
+<p align="center">
 $x_1(t) = e^{i\sqrt{k} t}$
+</p>
+<p align="center">
 $x_2(t) = e^{-i\sqrt{k} t}$
+</p>
 
 So thats it right? We've got our two solutions and thats it right? We'll almost. This might starting hinting that if there are two solutions then there may be more. So lets take a detour for a moment and do a proof, thats going to show us that theres actually an infinite number of solutions to this problem. (Technically there are an infinite number of solutions, but if we are given initial conditions on our variables we will get one solution).
 
-<!-- #### Proof of linearity of solutions to Linear ODE's
+#### Proof of linearity of solutions to homogeneous Linear ODE's
 
-The general form of a linear ODE is as follows (you should be able to find this on the wiki).
+The general form of a homogeneous linear ODE is as follows (you should be able to find this on the wiki).
 
-$a_0(t)x + a_1(t)x' + \ldots + a_n(t)x^{(n)} = b(t)$
+<p align="center">
+$a_0(t)x + a_1(t)\dot{x} + \ldots + a_n(t)x^{(n)} = 0$
+</p>
 
 Here, $a_0, a_1, \ldots a_n$ are differentiable functions, and $x^{(i)}$ is the $i$-th derivative of $x$ with respect to $t$.
 
@@ -208,24 +236,85 @@ The following is what we want to show:
 
 Say we have $k$ solutions to the differential equation above. Let these be denoted by $x_1, x_2, \ldots x_k$. Then we want to show that $z = c_1x_1 + c_2x_2 + \ldots + c_kx_k$ is also a solution to the same ODE, for constants $c_1, c_2, \ldots c_k$. That is we want to show that:
 
-$a_0(t)z + a_1(t)z' + \ldots + a_n(t)z^{(n)} = b(t)$
+<p align="center">
+$a_0(t)z + a_1(t)\dot{z} + \ldots + a_n(t)z^{(n)} = 0$
+</p>
 
 **Proof.**
 
 First rearange the linear ODE so that the function $x$ is on the RHS and that the $b(t)$ term is on the LHS.
 
-$a_0(t)x + a_1(t)x' + \ldots + a_n(t)x^{(n)} = b(t)$
-$a_1(t)x' + \ldots + a_n(t)x^{(n)} - b(t) = -a_0(t)x$
+<p align="center">
+$a_0(t)x + a_1(t)\dot{x} + \ldots + a_n(t)x^{(n)} = 0$
+</p>
+<p align="center">
+$a_1(t)\dot{x} + \ldots + a_n(t)x^{(n)} = -a_0(t)x$
+</p>
 
 We will start working our way from the RHS towards the LHS to prove that this is true for $x(t) = z(t)$.
 
+<p align="center">
 $-a_0(t)z = -a_0(t)(c_1x_1 + c_2x_2 + \ldots + c_kx_k)$
+</p>
+<p align="center">
 $-a_0(t)z = -a_0(t)c_1x_1 -a_0(t)c_2x_2 - \ldots -a_0(t)c_kx_k$
+</p>
+<p align="center">
 $-a_0(t)z = c_1(-a_0(t)x_1) + c_2(-a_0(t)x_2) + \ldots + c_k(-a_0(t)x_k)$
+</p>
 
 At this point we note that each of $x_1, x_2, \ldots x_k$ is valid solution to the differential equation.
 
-$= c_1(a_1(t)x_1' + \ldots + a_n(t)x_1^{(n)} - b(t))$
-$+ c_2(a_1(t)x_2' + \ldots + a_n(t)x_2^{(n)} - b(t))$
+<p align="center">
+$= c_1(a_1(t)\dot{x_1} + \ldots + a_n(t)x_1^{(n)})$
+</p>
+<p align="center">
+$+ c_2(a_1(t)\dot{x_2} + \ldots + a_n(t)x_2^{(n)})$
+</p>
+<p align="center">
 $+ \ldots +$
-$+ c_k(a_1(t)x_k' + \ldots + a_n(t)x_k^{(n)} - b(t))$ -->
+</p>
+<p align="center">
+$+ c_k(a_1(t)\dot{x_k} + \ldots + a_n(t)x_k^{(n)})$
+</p>
+
+Next we move the constants $c_1, c_2, \ldots, c_k$ inwards.
+
+<p align="center">
+$= a_1(t) c_1 \dot{x_1} + \ldots + a_n(t) c_1 x_1^{(n)}$
+</p>
+<p align="center">
+$+ a_1(t) c_2 \dot{x_2} + \ldots + a_n(t) c_2 x_2^{(n)}$
+</p>
+<p align="center">
+$+ \ldots +$
+</p>
+<p align="center">
+$+ a_1(t) c_k \dot{x_k} + \ldots + a_n(t) c_k x_k^{(n)}$
+</p>
+
+We then collect like terms containing $a_i(t), \forall i \in \{1, \ldots, n\}$
+
+<p align="center">
+$= a_1(t)(c_1 \dot{x_1} + c_2 \dot{x_2} + \ldots + c_k \dot{x_k})$
+</p>
+<p align="center">
+$+ a_2(t)(c_1 \ddot{x_1} + c_2 \ddot{x_2} + \ldots + c_k \ddot{x_k})$
+</p>
+<p align="center">
+$+\ldots+$
+</p>
+<p align="center">
+$+ a_n(t)(c_1 x^{(n)}_1 + c_2 x^{(n)}_2 + \ldots + c_k x^{(n)}_k)$
+</p>
+
+But notice that the inside terms on each of the lines are just successive derivatives of $z$.
+
+<p align="center">
+$-a_0(t)z= a_1(t)\dot{z} + a_2(t)\ddot{z} + \ldots + a_n(t)z^{(n)}$
+</p>
+<p align="center">
+$0 = a_0(t)z + a_1(t)\dot{z} + a_2(t)\ddot{z} + \ldots + a_n(t)z^{(n)}$
+</p>
+
+And so we realize that $z$ must also be a solution to our system.
