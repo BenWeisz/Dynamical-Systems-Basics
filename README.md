@@ -266,37 +266,37 @@ $-a_0(t)z = c_1(-a_0(t)x_1) + c_2(-a_0(t)x_2) + \ldots + c_k(-a_0(t)x_k)$
 At this point we note that each of $x_1, x_2, \ldots x_k$ is valid solution to the differential equation.
 
 <p align="center">
-$= c_1(a_1(t)\dot{x_1} + \ldots + a_n(t)x_1^{(n)})$
+$= c_1(a_1(t)\dot{x}_1 + \ldots + a_n(t)x_1^{(n)})$
 </p>
 <p align="center">
-$+ c_2(a_1(t)\dot{x_2} + \ldots + a_n(t)x_2^{(n)})$
+$+ c_2(a_1(t)\dot{x}_2 + \ldots + a_n(t)x_2^{(n)})$
 </p>
 <p align="center">
 $+ \ldots +$
 </p>
 <p align="center">
-$+ c_k(a_1(t)\dot{x_k} + \ldots + a_n(t)x_k^{(n)})$
+$+ c_k(a_1(t)\dot{x}_k + \ldots + a_n(t)x_k^{(n)})$
 </p>
 
 Next we move the constants $c_1, c_2, \ldots, c_k$ inwards.
 
 <p align="center">
-$= a_1(t) c_1 \dot{x_1} + \ldots + a_n(t) c_1 x_1^{(n)}$
+$= a_1(t) c_1 \dot{x}_1 + \ldots + a_n(t) c_1 x_1^{(n)}$
 </p>
 <p align="center">
-$+ a_1(t) c_2 \dot{x_2} + \ldots + a_n(t) c_2 x_2^{(n)}$
+$+ a_1(t) c_2 \dot{x}_2 + \ldots + a_n(t) c_2 x_2^{(n)}$
 </p>
 <p align="center">
 $+ \ldots +$
 </p>
 <p align="center">
-$+ a_1(t) c_k \dot{x_k} + \ldots + a_n(t) c_k x_k^{(n)}$
+$+ a_1(t) c_k \dot{x}_k + \ldots + a_n(t) c_k x_k^{(n)}$
 </p>
 
 We then collect like terms containing $a_i(t), \forall i \in \{1, \ldots, n\}$
 
 <p align="center">
-$= a_1(t)(c_1 \dot{x_1} + c_2 \dot{x_2} + \ldots + c_k \dot{x_k})$
+$= a_1(t)(c_1 \dot{x}_1 + c_2 \dot{x}_2 + \ldots + c_k \dot{x}_k)$
 </p>
 <p align="center">
 $+ a_2(t)(c_1 \ddot{x_1} + c_2 \ddot{x_2} + \ldots + c_k \ddot{x_k})$
