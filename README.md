@@ -317,4 +317,79 @@ $-a_0(t)z= a_1(t)\dot{z} + a_2(t)\ddot{z} + \ldots + a_n(t)z^{(n)}$
 $0 = a_0(t)z + a_1(t)\dot{z} + a_2(t)\ddot{z} + \ldots + a_n(t)z^{(n)}$
 </p>
 
-And so we realize that $z$ must also be a solution to our system.
+And so we realize that $z$ must also be a solution to our system. $\blacksquare$
+
+---
+
+Now, given that we already have two solutions, we can construct a more general solution based on our theorem.
+
+$x_1(t) = e^{i\sqrt{k}t}$
+$x_2(t) = e^{-i\sqrt{k}t}$
+
+$x(t) = c_1e^{i\sqrt{k}t} + c_2e^{-i\sqrt{k}t}$
+
+For some constants $c_1, c_2 \in \mathbb{R}$
+
+Ok, so we have a general solution now. But wait a minute, aren't we modeling a spring-mass systems? Where are the $sin$'s and $cos$'s is this supposed to be something that oscillates? Yup and yup. In order to get us there we're going to have to use a famous formula that is due to Euler.
+
+$e^{it} = cos(t) + isin(t)$
+
+If we expand our solution $x(t)$ using this formula we get the follwing:
+
+$x(t) = c_1(cos(\sqrt{k}t) + isin(\sqrt{k}t)) + c_2(cos(-\sqrt{k}t) + isin(-\sqrt{k}t))$
+$x(t) = c_1 cos(\sqrt{k}t) + c_1 isin(\sqrt{k}t) + c_2 cos(-\sqrt{k}t) + c_2 isin(-\sqrt{k}t)$
+
+Using the trigonometic propterties of $sin$ and $cos$ we can simplify this a bit. We know that $sin$ is an odd function and $cos$ is an even function. In simpler terms this means:
+
+$sin(-t) = -sin(t)$
+$cos(-t) = cos(t)$
+
+This leads to the following
+$x(t) = c_1 cos(\sqrt{k}t) + c_1 isin(\sqrt{k}t) + c_2 cos(-\sqrt{k}t) + c_2 isin(-\sqrt{k}t)$
+$x(t) = c_1 cos(\sqrt{k}t) + c_1 isin(\sqrt{k}t) + c_2 cos(\sqrt{k}t) - c_2 isin(\sqrt{k}t)$
+$x(t) = (c_1 + c_2) cos(\sqrt{k}t) + i (c_1 - c_2) sin(\sqrt{k}t)$
+
+This leaves us with a nice little form for a general solution, although, its still a bit strange that there is a $i$ in the term with $sin$. You might wonder what this mean's geometrically in the real world for our spring-mass.
+
+In order to get a sense of this, lets introduce some initial values and solve for our constants $c_1, c_2$. Close your eyes and imagine the spring mass system for a moment. You reach out with your hand and you pull back the spring a bit and then you release it. Lets say that you pulled it out 2 units from its initial resting position. At this moment in time, our velocity is 0 units per second. For simplicity lets also assume that $k$ = 1. This corresponds to:
+
+$x(0) = 2, v(0) = 0, k = 1$
+
+To come up with an equation for the velocity lets differemtiate the equation for the position of our mass.
+
+$\frac{d}{dt}x(t) = \frac{d}{dt}(c_1 + c_2) cos(t) + i(c_1 - c_2) sin(t)$
+$v(t) =-(c_1 + c_2) sin(t) + i (c_1 - c_2) cos(t)$
+
+If we plug in $t = 0$ into both the position and velocity equations and set them equal to their respective initial values, we get the following:
+
+$x(0) = 2 = (c_1 + c_2) cos(0) + i (c_1 - c_2) sin(0)$
+$2 = (c_1 + c_2) cos(0) + i (c_1 - c_2) sin(0)$
+$2 = c_1 + c_2$
+
+$0 = v(0) =-(c_1 + c_2) sin(0) + i (c_1 - c_2) cos(0)$
+$0 = c_1i - c_2i$
+
+With a bit of linear algebra or maybe just guessing you can figure out that the values of $c_1$ and $c_2$ should both be 1. If we sub in these values into our position equation we get the following:
+
+$x(t) = (c_1 + c_2)cos(t) + i (c_1 - c_2) sin(t)$
+$x(t) = 2cos(t)$
+
+Would you look at that! The imaginary term disapeared, and finally we have a position equation thats a simple oscillator. You can do the same thing to figure out the equation for the velocity of the mass. Just plug in the constants $c_1, c_2$.
+
+In summary, given a mass of $1$kg attached to a spring, with a spring coefficient $k = 1$, initial position and velocity of $x(0) = 2$ and $v(0) = 0$ its position is governed by the following equation:
+
+$x(t) = 2cos(t)$
+
+We can see this behaviour below in the position time graph. The mass oscillates forever since there is nothing to damp it's motion.
+
+<p align="center">
+  <img width="460" height="300" src="https://raw.githubusercontent.com/BenWeisz/Numerical-Integration-Basics/main/Images/method3-fig1.jpg">
+</p>
+
+### Higher order linear systems
+
+- Introduce matrix representation
+- Show solution for decoupled system
+- Show relatedness of general ODE system to its matrix representation
+- Introduce eigen decomposition
+- Show solution to general problem
