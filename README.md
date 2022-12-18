@@ -402,7 +402,7 @@ $2 = c_1 + c_2$
 </p>
 
 <p align="center">
-$0 = v(0) =-(c_1 + c_2) sin(0) + i (c_1 - c_2) cos(0)$
+$v(0) = 0 =-(c_1 + c_2) sin(0) + i (c_1 - c_2) cos(0)$
 </p>
 <p align="center">
 $0 = c_1i - c_2i$
