@@ -437,4 +437,4 @@ We can see this behaviour below in the position time graph. The mass oscillates 
 - Show solution for decoupled system
 - Show relatedness of general ODE system to its matrix representation
 - Introduce eigen decomposition
-- Show solution to general problem
+- Show solution to general linear system problem
