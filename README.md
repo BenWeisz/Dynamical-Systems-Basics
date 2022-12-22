@@ -438,3 +438,8 @@ We can see this behaviour below in the position time graph. The mass oscillates 
 - Show relatedness of general ODE system to its matrix representation
 - Introduce eigen decomposition
 - Show solution to general linear system problem
+
+### Discrete Solutions
+- Show different types of integrators: Forward Euler, Backward Euler, RK2, RK4, Symplectic Euler
+- Analyze global and local errors of methods
+- Show some real world examples
