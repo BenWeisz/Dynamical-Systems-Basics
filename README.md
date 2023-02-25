@@ -40,7 +40,7 @@ We have a few options here. We can either try to solve these types of equations 
 
 ## Analytic Solutions
 
-There are many ways to come up with an analytic solution. Let's look at one for now, and we'll look at two more methods later.
+There are many ways to come up with an analytic solution. Let's look at one for now, and we'll look at three more methods later.
 
 ### Method 1: Magic (Sort of)
 
@@ -242,7 +242,7 @@ $a_0(t)z + a_1(t)\dot{z} + \ldots + a_n(t)z^{(n)} = 0$
 
 **Proof.**
 
-First rearange the linear ODE so that the function $x$ is on the RHS and that the $b(t)$ term is on the LHS.
+First rearrange the linear ODE so that the function $x$ is on the RHS and that the $b(t)$ term is on the LHS.
 
 <p align="center">
 $a_0(t)x + a_1(t)\dot{x} + \ldots + a_n(t)x^{(n)} = 0$
@@ -430,6 +430,140 @@ We can see this behaviour below in the position time graph. The mass oscillates 
 <p align="center">
   <img width="460" height="300" src="https://raw.githubusercontent.com/BenWeisz/Numerical-Integration-Basics/main/Images/method3-fig1.jpg">
 </p>
+
+### Method 4: Matrix Representation
+
+Ok so we have a way to solve ODEs in a couple ways now. But what happens when we want to solve a differential system with multiple variables and their derivaties? First I'll motivate a matrix representation for our problems and then we can solve a harder system using the matrix representation.
+
+Let's look at this example for now:
+<p align="center">
+$\ddot{x} + 3 \dot{x} + 2x = 0$
+</p>
+
+<p align="center">
+$x(0) = 2$
+</p>
+
+<p align="center">
+$\dot{x}(0) = -3$
+</p>
+
+Using our previous methods we can just guess the function for $x(t)$ for now and figure out what it's first and second derivatives are and then see if we can solve the system.
+
+<p align="center">
+$x(t) = e^{\lambda t}$
+</p>
+
+<p align="center">
+$\dot{x}(t) = \lambda e^{\lambda t}$
+</p>
+
+<p align="center">
+$\ddot{x}(t) = \lambda^2 e^{\lambda t}$
+</p>
+
+Now we have a function for $x(t)$ but we don't know what our parameter $\lambda$ is. We can do some simple substitution into our system to try to figure out what $\lambda$ has to be.
+
+<p align="center">
+$\ddot{x} + 3\dot{x} + 2x = 0$
+</p>
+
+<p align="center">
+$\lambda^2 e^{\lambda t} + 3\lambda e^{\lambda t} + 2 e^{\lambda t} = 0$
+</p>
+
+Factoring $e^{\lambda t}$ out we get:
+
+<p align="center">
+$e^{\lambda t} (\lambda^2 + 3\lambda + 2) = 0$
+</p>
+
+This equation is true in two cases. The first, which is not that interesting is when $t = 0$. The second is when $\lambda^2 + 3\lambda + 2 = 0$.
+
+Solving this using the quadratic formula we get the values of $\lambda = -1,-2$. As before, to get a general solution you would have to solve for $c_1$ and $c_2$ using the initial conditions provided:
+
+<p align="center">
+$x(t) = c_1 e^{-t} + c_2 e^{-2t}$
+</p>
+
+I'll leave that to you as an exercise and instead we'll investigate an interesting idea. If you look closely at the equation we solved in terms of $\lambda$ it might look familiar from a linear algebra class. Perhaps because of the use of the variable $\lambda$ you might think this could be the characteristic polynomial of a matrix.
+
+Another way to look at this system is as a set of two equations which we can turn into a linear system and then solve. Rearranging our linear ODE equation we get the following two equations.
+
+<p align="center">
+$\dot{x} = v$
+</p>
+
+<p align="center">
+$\ddot{x} = \dot{v} = -3\dot{x} - 2x$
+</p>
+
+We can take the variable and it's first derivative and represent both of them at the same time as a stacked vector. We can then write our system as follows in the form $\dot{y} = Ay$:
+
+<p align="center">
+$
+\frac{d}{dt}\begin{bmatrix}
+x\\
+v
+\end{bmatrix}
+= \begin{bmatrix}
+0 & 1\\
+-3 & -2
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+v
+\end{bmatrix}
+$
+</p>
+
+You can verify that this represents our system faithfully. Now, let's try to figure out what the eigen values are for our matrix $A$. This is typically done by solving for $\lambda$ in the following equation:
+
+<p align="center">
+$det(A - \lambda I) = 0$
+</p>
+
+<p align="center">
+$det[
+    \begin{bmatrix}
+0 & 1\\
+-3 & -2
+\end{bmatrix} - \lambda I_2] = 0$
+</p>
+
+<p align="center">
+$det[
+    \begin{bmatrix}
+-\lambda & 1\\
+-3 & -2 - \lambda
+\end{bmatrix}
+] = 0$
+</p>
+
+<p align="center">
+$(-\lambda)(-2-\lambda) - (-3)(1) = 0$
+</p>
+
+<p align="center">
+$\lambda^2 + 2\lambda + 3 = 0$
+</p>
+
+This yeilds the characteristic function for the matrix $A$ which interesting also happens to equation we solved previously for $\lambda$. This isn't a coincidence!
+
+<!-- This might start turning some gears in your head about the general case for linear ODEs. If we had a order $n$ linear differential equation, then we could guess that $x(t) = e^{\lambda t}$ and then take successive derivatives and again substitute everything into the system and solve for $\lambda$. The analogous form using matrices would yeild the following matrix form for the linear ODE:
+
+$a_0x + a_1x^{(1)} + a_2x^{(2)} + \dots + a_{n-1}x^{(n-1)} = 0$
+
+
+$\begin{bmatrix}
+0 & 1 & 0 & 0 & \dots & 0\\
+0 & 0 & 1 & 0 & \dots & 0\\
+0 & 0 & 0 & 1 & \dots & 0\\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots\\
+-a_0 & -a_1 & -a_2 & -a_3 & \dots & -a_{n-1}
+\end{bmatrix}$ -->
+
+---
 
 ### Higher order linear systems
 
